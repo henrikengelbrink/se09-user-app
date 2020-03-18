@@ -5,8 +5,8 @@ import KeychainAccess
 class AuthService {
     var currentAuthFlow: OIDExternalUserAgentSession?
     
-    private let authEndpoint = URL(string: "https://hydra.engelbrink.dev/oauth2/auth")!
-    private let tokenEndpoint = URL(string: "https://hydra.engelbrink.dev/oauth2/token")!
+    private let authEndpoint = URL(string: "https://api.engelbrink.dev/hydra/oauth2/auth")!
+    private let tokenEndpoint = URL(string: "https://api.engelbrink.dev/hydra/oauth2/token")!
     private let redirectURL = URL(string: "com.example-app:/oauth2/callback")!
     private let clientId = "test-client"
     private let clientSecret = "test-secret"
@@ -25,7 +25,9 @@ class AuthService {
                                               responseType: OIDResponseTypeCode,
                                               additionalParameters: nil)
         currentAuthFlow = OIDAuthState.authState(byPresenting: request, presenting: vc, callback: { (authState, error) in
-            if let authState = authState {
+            authState?.tokenRefreshRequest()
+            if let authState != authState {
+                
                 print("Refresh \(authState.refreshToken!)")
                 print("Scope \(authState.scope!)")
                 print("AccessToken \(authState.lastTokenResponse!.accessToken!)")
@@ -39,6 +41,23 @@ class AuthService {
         })
     }
     
+    func refreshToken() {
+        print("refreshToken")
+        let request = OIDAuthorizationRequest(
+            configuration: config,
+            clientId: clientId,
+            clientSecret: clientSecret,
+            scopes: [OIDScopeOpenID, "offline"],
+            redirectURL: redirectURL,
+            responseType: OIDResponseTypeCode,
+            additionalParameters: nil
+        )
+        let response = OIDAuthorizationResponse(request: request, parameters: [:])
+        let state = OIDAuthState(authorizationResponse: response)
+        let oIDTokenRequest = OIDAuthState.tokenRefreshRequest(state)
+        print(oIDTokenRequest)
+    }
+    
     private func saveLoginData(token: String, refresh: String) {
         let keychain = Keychain(service: keychainName)
         try? keychain.set(token, key: keychainKeyToken)
@@ -46,13 +65,15 @@ class AuthService {
     }
     
     func userLoggedIn() -> Bool {
+        var loggedIn = true
         let keychain = Keychain(service: keychainName)
         let token = try? keychain.get(keychainKeyToken)
         let refresh = try? keychain.get(keychainKeyRefresh)
         if token == nil || refresh == nil {
-            return false
+            loggedIn = false
         }
-        return true
+        print("userLoggedIn \(loggedIn)")
+        return loggedIn
     }
     
     func logout() {
@@ -60,6 +81,7 @@ class AuthService {
         do {
             try keychain.remove(keychainKeyToken)
             try keychain.remove(keychainKeyRefresh)
+            print("LOGGED OUT")
         } catch let error {
             print("error: \(error)")
         }

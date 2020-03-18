@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (5.0.0-rc.3)
   - AppAuth (0.95.1)
   - KeychainAccess (4.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.3)
   - AppAuth (~> 0.94)
   - KeychainAccess
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - AppAuth
     - KeychainAccess
 
 SPEC CHECKSUMS:
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   AppAuth: cd34aac431e5c77c46ec7f03935377faa8c5808b
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
 
-PODFILE CHECKSUM: 248963c78cf7c85e684986449f2bc72ce5a44128
+PODFILE CHECKSUM: efe0d565e53e356991c936b657604e9306fdb611
 
 COCOAPODS: 1.8.4

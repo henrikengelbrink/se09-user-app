@@ -21,6 +21,10 @@
 		FED56C1424198F6000071E05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED56C1224198F6000071E05 /* Main.storyboard */; };
 		FED570CC241AB81D00071E05 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED570CB241AB81D00071E05 /* AccountViewController.swift */; };
 		FED570CE241AE80D00071E05 /* DeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED570CD241AE80D00071E05 /* DeviceListViewController.swift */; };
+		FED570D0241E5C2C00071E05 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED570CF241E5C2C00071E05 /* DeviceService.swift */; };
+		FED570D2241E652000071E05 /* ESP32Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED570D1241E652000071E05 /* ESP32Config.swift */; };
+		FED570D4241E653D00071E05 /* ESP32ConfigDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED570D3241E653D00071E05 /* ESP32ConfigDevice.swift */; };
+		FED570D7241E892300071E05 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED570D6241E892300071E05 /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,11 @@
 		FED56C1324198F6000071E05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FED570CB241AB81D00071E05 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FED570CD241AE80D00071E05 /* DeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewController.swift; sourceTree = "<group>"; };
+		FED570CF241E5C2C00071E05 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		FED570D1241E652000071E05 /* ESP32Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32Config.swift; sourceTree = "<group>"; };
+		FED570D3241E653D00071E05 /* ESP32ConfigDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32ConfigDevice.swift; sourceTree = "<group>"; };
+		FED570D5241E892300071E05 /* se09-user-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "se09-user-app.entitlements"; sourceTree = "<group>"; };
+		FED570D6241E892300071E05 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FED570D7241E892300071E05 /* ExternalAccessory.framework in Frameworks */,
 				78D4169FEC4B96F0ACC55C74 /* Pods_se09_user_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +110,7 @@
 		76C40460408CB90A5DC89CE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FED570D6241E892300071E05 /* ExternalAccessory.framework */,
 				0EF3959B96345759C3A9B5B8 /* Pods_se09_user_app.framework */,
 				938AFFF3F5877B45CAC3865B /* Pods_se09_user_app_se09_user_appUITests.framework */,
 				85DFC2461797934F8F220F1B /* Pods_se09_user_appTests.framework */,
@@ -145,6 +156,7 @@
 		FED56BDF24197B2900071E05 /* se09-user-app */ = {
 			isa = PBXGroup;
 			children = (
+				FED570D5241E892300071E05 /* se09-user-app.entitlements */,
 				FED570CA241AAF0200071E05 /* Service */,
 				FED570C7241AAE1000071E05 /* Models */,
 				FED570C6241A96BD00071E05 /* ViewController */,
@@ -189,6 +201,8 @@
 		FED570C7241AAE1000071E05 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FED570D1241E652000071E05 /* ESP32Config.swift */,
+				FED570D3241E653D00071E05 /* ESP32ConfigDevice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				FED56C10241986EF00071E05 /* AuthService.swift */,
+				FED570CF241E5C2C00071E05 /* DeviceService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -445,7 +460,10 @@
 				FED570CE241AE80D00071E05 /* DeviceListViewController.swift in Sources */,
 				FED56BE124197B2900071E05 /* AppDelegate.swift in Sources */,
 				FED56BE324197B2900071E05 /* SceneDelegate.swift in Sources */,
+				FED570D4241E653D00071E05 /* ESP32ConfigDevice.swift in Sources */,
+				FED570D0241E5C2C00071E05 /* DeviceService.swift in Sources */,
 				FED56C11241986EF00071E05 /* AuthService.swift in Sources */,
+				FED570D2241E652000071E05 /* ESP32Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +637,7 @@
 			baseConfigurationReference = 68BFCD1D77ECC64AAF014002 /* Pods-se09-user-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "se09-user-app/se09-user-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73VFVANY58;
 				INFOPLIST_FILE = "se09-user-app/Info.plist";
@@ -638,6 +657,7 @@
 			baseConfigurationReference = A044EBB67F630489FD52A8AA /* Pods-se09-user-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "se09-user-app/se09-user-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73VFVANY58;
 				INFOPLIST_FILE = "se09-user-app/Info.plist";
