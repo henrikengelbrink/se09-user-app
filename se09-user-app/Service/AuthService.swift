@@ -7,22 +7,23 @@ class AuthService {
     
     private let authEndpoint = URL(string: "https://api.engelbrink.dev/hydra/oauth2/auth")!
     private let tokenEndpoint = URL(string: "https://api.engelbrink.dev/hydra/oauth2/token")!
-    private let redirectURL = URL(string: "com.example-app:/oauth2/callback")!
-    private let clientId = "74c1bf4d626d392e5c6b4faaa4427e6a"
-    private let clientSecret = "fe5d7aa261650f2d2793cf86acc8b34bf516574f4b1955c468eaefe113b848d8"
+    private let redirectURL = URL(string: "com.se09-user-app:/oauth2/callback")!
+    private let clientId = "254ea39f6f1d8a0eb0596336cbe1c3e4"
     private lazy var config = OIDServiceConfiguration(authorizationEndpoint: authEndpoint, tokenEndpoint: tokenEndpoint)
     
     private let keychainKeyAuthState = "keychainKeyAuthState"
     private let keychain = Keychain(service: "com.se09.userapp")
     
     func authorize(from vc: UIViewController, onSuccess: @escaping (OIDAuthState) -> Void, onError: @escaping (Error) -> Void) {
-        let request = OIDAuthorizationRequest(configuration: config,
-                                              clientId: clientId,
-                                              clientSecret: clientSecret,
-                                              scopes: [OIDScopeOpenID, "offline"],
-                                              redirectURL: redirectURL,
-                                              responseType: OIDResponseTypeCode,
-                                              additionalParameters: nil)
+        let request = OIDAuthorizationRequest(
+            configuration: config,
+            clientId: clientId,
+            clientSecret: nil,
+            scopes: [OIDScopeOpenID, "offline"],
+            redirectURL: redirectURL,
+            responseType: OIDResponseTypeCode,
+            additionalParameters: nil
+        )
         currentAuthFlow = OIDAuthState.authState(byPresenting: request, presenting: vc, callback: { (authState, error) in
             if let authState = authState {
                 self.saveAuthState(authState: authState)
