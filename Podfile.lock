@@ -2,23 +2,27 @@ PODS:
   - Alamofire (5.0.0-rc.3)
   - AppAuth (0.95.1)
   - KeychainAccess (4.1.0)
+  - PPBlinkOCR (4.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.3)
   - AppAuth (~> 0.94)
   - KeychainAccess
+  - PPBlinkOCR (~> 4.1.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AppAuth
     - KeychainAccess
+    - PPBlinkOCR
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   AppAuth: cd34aac431e5c77c46ec7f03935377faa8c5808b
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
+  PPBlinkOCR: b2015743173415766d26f31565f7198d3fc880b4
 
-PODFILE CHECKSUM: efe0d565e53e356991c936b657604e9306fdb611
+PODFILE CHECKSUM: 476d03326b441a056958dc0ecc7af1ccf20b0b3b
 
 COCOAPODS: 1.8.4

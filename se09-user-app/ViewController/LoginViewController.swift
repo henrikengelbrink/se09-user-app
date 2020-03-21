@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
-    let authService = AuthService()
+    private let authService = AuthService()
     
     @IBAction func authorize(_ sender: Any) {
         self.authService.authorize(from: self, onSuccess: { [weak self] authState in

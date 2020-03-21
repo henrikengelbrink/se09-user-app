@@ -8,7 +8,7 @@ class AuthService {
     private let authEndpoint = URL(string: "https://api.engelbrink.dev/hydra/oauth2/auth")!
     private let tokenEndpoint = URL(string: "https://api.engelbrink.dev/hydra/oauth2/token")!
     private let redirectURL = URL(string: "com.se09-user-app:/oauth2/callback")!
-    private let clientId = "254ea39f6f1d8a0eb0596336cbe1c3e4"
+    private let clientId = "3f1151b77e1d5b9b0669144b066a501b"
     private lazy var config = OIDServiceConfiguration(authorizationEndpoint: authEndpoint, tokenEndpoint: tokenEndpoint)
     
     private let keychainKeyAuthState = "keychainKeyAuthState"
@@ -19,7 +19,7 @@ class AuthService {
             configuration: config,
             clientId: clientId,
             clientSecret: nil,
-            scopes: [OIDScopeOpenID, "offline"],
+            scopes: [OIDScopeOpenID, "offline", "offline_access"],
             redirectURL: redirectURL,
             responseType: OIDResponseTypeCode,
             additionalParameters: nil
@@ -41,42 +41,33 @@ class AuthService {
     }
 
     
-    func userLoggedIn() -> Bool {
-        var loggedIn = true
+    func userLoggedIn(completion: @escaping (Bool) -> Void) {
         let authStateData: Data? = try? keychain.getData(keychainKeyAuthState)
         if authStateData != nil {
             if let authState = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(authStateData!) as? OIDAuthState {
-                if authState.lastTokenResponse != nil && authState.lastTokenResponse!.accessTokenExpirationDate != nil {
-                    if authState.lastTokenResponse!.accessTokenExpirationDate!.timeIntervalSince1970 < Date.init().timeIntervalSince1970 {
-                        print("REFRESH TOKEN")
-                        let request = authState.lastAuthorizationResponse.tokenExchangeRequest()
-                        OIDAuthorizationService.perform(request!, callback: { (tokenResponse, error) in
-                            if tokenResponse != nil && error == nil {
-                                authState.update(with: tokenResponse, error: error)
-                                print("REFRESH TOKEN DONE")
-                                self.saveAuthState(authState: authState)
-                            } else {
-                                print("REFRESH FAILED")
-                                loggedIn = false
-                                try? self.keychain.remove(self.keychainKeyAuthState)
-                            }
-                        })
+                let oldAT = authState.lastTokenResponse?.accessToken
+                authState.performAction() { (accessToken, idToken, error) in
+                    if error != nil  {
+                        print("Error fetching fresh tokens: \(error?.localizedDescription ?? "Unknown error")")
+                        try? self.keychain.remove(self.keychainKeyAuthState)
+                        completion(false)
+                        return
                     }
-                } else {
-                    print("MISSING EXP DATE")
-                    loggedIn = false
-                    try? keychain.remove(keychainKeyAuthState)
+                    if oldAT! != accessToken! {
+                        print("REFRESHED TOKEN")
+                    }
+                    self.saveAuthState(authState: authState)
+                    print(authState.lastTokenResponse?.accessToken!)
+                    completion(true)
                 }
             } else {
                 print("INVALID authStateData")
-                loggedIn = false
                 try? keychain.remove(keychainKeyAuthState)
+                completion(false)
             }
         } else {
-            loggedIn = false
+            completion(false)
         }
-        print("userLoggedIn \(loggedIn)")
-        return loggedIn
     }
     
     func logout() {
@@ -86,6 +77,17 @@ class AuthService {
         } catch let error {
             print("error: \(error)")
         }
+    }
+    
+    func getAccessToken() -> String? {
+        let authStateData: Data? = try? keychain.getData(keychainKeyAuthState)
+        if authStateData != nil {
+            if let authState = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(authStateData!) as? OIDAuthState {
+                print("TOKEN \(authState.lastTokenResponse?.accessToken)")
+                return authState.lastTokenResponse?.accessToken
+            }
+        }
+        return nil
     }
     
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nye-Xe-Gjp">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -38,6 +38,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="118.29085457271366"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gpN-m4-S70">
+            <objects>
+                <viewController id="Nye-Xe-Gjp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bB4-iw-gCd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="6Qv-1k-ipT">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="SYU-O7-UHr"/>
+                                    <constraint firstAttribute="height" constant="20" id="j2L-M3-YG3"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Qv-1k-ipT" firstAttribute="centerX" secondItem="bB4-iw-gCd" secondAttribute="centerX" id="cdf-EF-gzt"/>
+                            <constraint firstItem="6Qv-1k-ipT" firstAttribute="centerY" secondItem="bB4-iw-gCd" secondAttribute="centerY" id="voJ-RK-52J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bOZ-OE-6gq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6j0-nt-w71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1187" y="47"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uE8-8Q-lhb">
@@ -106,7 +134,67 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvu-VP-etY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-623"/>
+            <point key="canvasLocation" x="1452" y="-625"/>
+        </scene>
+        <!--Camera Config Capture View Controller-->
+        <scene sceneID="whW-Qj-wlZ">
+            <objects>
+                <viewController storyboardIdentifier="CameraConfigCaptureViewController" id="ORY-XX-SZV" customClass="CameraConfigCaptureViewController" customModule="se09_user_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IBE-qX-gdf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqb-AV-dYk">
+                                <rect key="frame" x="16" y="243" width="343" height="181"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="181" id="wQ2-fF-6P5"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbu-bf-ECm">
+                                <rect key="frame" x="157.5" y="508" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="L0e-tk-TvS"/>
+                                    <constraint firstAttribute="width" constant="60" id="f3g-Q5-Sfl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Button" image="camera.viewfinder" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="takeImage:" destination="ORY-XX-SZV" eventType="touchUpInside" id="pnE-Ui-JS4"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="LfH-bC-MFJ">
+                                <rect key="frame" x="177.5" y="104" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="aZm-te-ElL"/>
+                                    <constraint firstAttribute="height" constant="20" id="fLT-Q4-e4c"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ACD-XE-oFm" firstAttribute="trailing" secondItem="Vqb-AV-dYk" secondAttribute="trailing" constant="16" id="E0R-go-moH"/>
+                            <constraint firstItem="Vqb-AV-dYk" firstAttribute="centerX" secondItem="IBE-qX-gdf" secondAttribute="centerX" id="Gi2-Cn-AbM"/>
+                            <constraint firstItem="Vqb-AV-dYk" firstAttribute="centerY" secondItem="IBE-qX-gdf" secondAttribute="centerY" id="Lma-x3-ZP0"/>
+                            <constraint firstItem="LfH-bC-MFJ" firstAttribute="centerX" secondItem="IBE-qX-gdf" secondAttribute="centerX" id="OFn-dc-Zfd"/>
+                            <constraint firstItem="ACD-XE-oFm" firstAttribute="bottom" secondItem="Lbu-bf-ECm" secondAttribute="bottom" constant="99" id="Q80-8v-36U"/>
+                            <constraint firstItem="Vqb-AV-dYk" firstAttribute="leading" secondItem="ACD-XE-oFm" secondAttribute="leading" constant="16" id="fOl-ye-PBj"/>
+                            <constraint firstItem="LfH-bC-MFJ" firstAttribute="top" secondItem="ACD-XE-oFm" secondAttribute="top" constant="104" id="l42-dv-TBM"/>
+                            <constraint firstItem="Lbu-bf-ECm" firstAttribute="centerX" secondItem="IBE-qX-gdf" secondAttribute="centerX" id="lMS-fS-UGD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ACD-XE-oFm"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="LfH-bC-MFJ" id="MnD-F6-3rv"/>
+                        <outlet property="cameraView" destination="Vqb-AV-dYk" id="XPQ-sj-YDK"/>
+                        <outlet property="captureButton" destination="Lbu-bf-ECm" id="trv-lT-Flb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HK2-1x-MUi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2328.8000000000002" y="-626.53673163418296"/>
         </scene>
         <!--Account-->
         <scene sceneID="TsO-Th-Bmn">
@@ -155,6 +243,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.viewfinder" catalog="system" width="64" height="56"/>
         <image name="person.crop.square" catalog="system" width="64" height="56"/>
         <image name="square.split.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>
