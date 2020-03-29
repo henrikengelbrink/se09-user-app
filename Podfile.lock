@@ -1,28 +1,32 @@
 PODS:
   - Alamofire (5.0.0-rc.3)
   - AppAuth (0.95.1)
+  - CocoaAsyncSocket (7.6.4)
+  - CocoaMQTT (1.2.5):
+    - CocoaAsyncSocket (~> 7.6.3)
   - KeychainAccess (4.1.0)
-  - PPBlinkOCR (4.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.3)
   - AppAuth (~> 0.94)
+  - CocoaMQTT
   - KeychainAccess
-  - PPBlinkOCR (~> 4.1.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AppAuth
+    - CocoaAsyncSocket
+    - CocoaMQTT
     - KeychainAccess
-    - PPBlinkOCR
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   AppAuth: cd34aac431e5c77c46ec7f03935377faa8c5808b
+  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
+  CocoaMQTT: a61490ed3b328011c5d75169a77781983e2bb221
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
-  PPBlinkOCR: b2015743173415766d26f31565f7198d3fc880b4
 
-PODFILE CHECKSUM: 476d03326b441a056958dc0ecc7af1ccf20b0b3b
+PODFILE CHECKSUM: 43fc52f353bf8c3a682339a03990101326c4b7cf
 
 COCOAPODS: 1.8.4

@@ -10,12 +10,9 @@ import UIKit
 import AVFoundation
 import QuickLook
 import Vision
-import Alamofire
 
 class CameraConfigCaptureViewController: UIViewController, AVCapturePhotoCaptureDelegate {
-    
-    private let authService = AuthService()
-    
+            
     @IBOutlet private weak var cameraView: UIView!
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -23,6 +20,9 @@ class CameraConfigCaptureViewController: UIViewController, AVCapturePhotoCapture
     private var stillImageOutput: AVCapturePhotoOutput!
     private var session: AVCaptureSession? = nil
     
+    private var userDeviceId: String? = nil
+    private var password: String? = nil
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .redo, target: self, action: #selector(goBack))
@@ -153,36 +153,23 @@ class CameraConfigCaptureViewController: UIViewController, AVCapturePhotoCapture
             } catch {
                 print(error)
             }
-            print(id)
-            let lowerCaseId = id.lowercased()
-            print(lowerCaseId)
-            requestMQTTConfig(id: lowerCaseId)
-        }
-    }
-    
-    private func requestMQTTConfig(id: String) {
-        let token = authService.getAccessToken()
-        if token != nil {
-            let headers: HTTPHeaders = [
-              "Authorization": "Bearer \(token!)",
-            ]
-            AF.request("https://api.engelbrink.dev/device-service/devices/\(id)", method : .post, parameters : [:], encoding : JSONEncoding.default, headers: headers).responseDecodable(of:MQTTAuthConfig.self) { response in
-                if response.value != nil {
-                    self.connectToWifi(config: response.value!)
-                } else {
-                    print(response.error)
-                    print(response.debugDescription)
-                    print("ERR *****")
-                }
+            print("**** SCANNED \(id)")
+//            let lowerCaseId = id.lowercased()
+            let lowerCaseId = "668fb2a2-6609-4450-8a59-c44cc030205b"
+            let alert = UIAlertController(title: "Id correct ?", message: lowerCaseId, preferredStyle: .actionSheet)
+            let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WifiViewController") as! WifiViewController
+                vc.deviceId = lowerCaseId
+                self.navigationController?.pushViewController(vc, animated: true)
             }
-        } else {
-            print("INVALID TOKEN AUTH")
+            let noAction = UIAlertAction.init(title: "No", style: .destructive) { (action) in
+                self.captureButton.isEnabled = true
+                self.activityIndicator.isHidden = true
+            }
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    private func connectToWifi(config: MQTTAuthConfig) {
-        print(config.userDeviceId)
-        print(config.password)
     }
     
     private func fixOrientationOfImage(image: UIImage) -> UIImage? {

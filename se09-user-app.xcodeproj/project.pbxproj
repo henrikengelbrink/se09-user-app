@@ -10,6 +10,8 @@
 		0132398BF1E0B340520EF085 /* Pods_se09_user_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85DFC2461797934F8F220F1B /* Pods_se09_user_appTests.framework */; };
 		78D4169FEC4B96F0ACC55C74 /* Pods_se09_user_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF3959B96345759C3A9B5B8 /* Pods_se09_user_app.framework */; };
 		9FCB38F2A4ADF4804B697AB0 /* Pods_se09_user_app_se09_user_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938AFFF3F5877B45CAC3865B /* Pods_se09_user_app_se09_user_appUITests.framework */; };
+		FE56F012242E470C00FCAC4F /* ListDeviceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56F011242E470C00FCAC4F /* ListDeviceDTO.swift */; };
+		FE56F015242E5E7500FCAC4F /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56F014242E5E7500FCAC4F /* DeviceCell.swift */; };
 		FED56BE124197B2900071E05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED56BE024197B2900071E05 /* AppDelegate.swift */; };
 		FED56BE324197B2900071E05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED56BE224197B2900071E05 /* SceneDelegate.swift */; };
 		FED56BE524197B2900071E05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED56BE424197B2900071E05 /* LoginViewController.swift */; };
@@ -27,6 +29,7 @@
 		FED570D7241E892300071E05 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED570D6241E892300071E05 /* ExternalAccessory.framework */; };
 		FED570DB2425322000071E05 /* CameraConfigCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED570DA2425322000071E05 /* CameraConfigCaptureViewController.swift */; };
 		FED570DF242575F000071E05 /* MQTTAuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED570DE242575F000071E05 /* MQTTAuthConfig.swift */; };
+		FED570E22427C00F00071E05 /* WifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED570E12427C00F00071E05 /* WifiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,8 @@
 		85DFC2461797934F8F220F1B /* Pods_se09_user_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_se09_user_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		938AFFF3F5877B45CAC3865B /* Pods_se09_user_app_se09_user_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_se09_user_app_se09_user_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A044EBB67F630489FD52A8AA /* Pods-se09-user-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-se09-user-app.release.xcconfig"; path = "Target Support Files/Pods-se09-user-app/Pods-se09-user-app.release.xcconfig"; sourceTree = "<group>"; };
+		FE56F011242E470C00FCAC4F /* ListDeviceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDeviceDTO.swift; sourceTree = "<group>"; };
+		FE56F014242E5E7500FCAC4F /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		FED56BDD24197B2900071E05 /* se09-user-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "se09-user-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED56BE024197B2900071E05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FED56BE224197B2900071E05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,10 +81,11 @@
 		FED570CF241E5C2C00071E05 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		FED570D1241E652000071E05 /* ESP32Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32Config.swift; sourceTree = "<group>"; };
 		FED570D3241E653D00071E05 /* ESP32ConfigDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32ConfigDevice.swift; sourceTree = "<group>"; };
-		FED570D5241E892300071E05 /* se09-user-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "se09-user-app.entitlements"; sourceTree = "<group>"; };
 		FED570D6241E892300071E05 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		FED570DA2425322000071E05 /* CameraConfigCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigCaptureViewController.swift; sourceTree = "<group>"; };
 		FED570DE242575F000071E05 /* MQTTAuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTAuthConfig.swift; sourceTree = "<group>"; };
+		FED570E02426D27B00071E05 /* se09-user-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "se09-user-app.entitlements"; sourceTree = "<group>"; };
+		FED570E12427C00F00071E05 /* WifiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FE56F013242E5E5000FCAC4F /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				FE56F014242E5E7500FCAC4F /* DeviceCell.swift */,
+			);
+			path = CustomControls;
+			sourceTree = "<group>";
+		};
 		FED56BD424197B2900071E05 = {
 			isa = PBXGroup;
 			children = (
@@ -160,7 +174,8 @@
 		FED56BDF24197B2900071E05 /* se09-user-app */ = {
 			isa = PBXGroup;
 			children = (
-				FED570D5241E892300071E05 /* se09-user-app.entitlements */,
+				FE56F013242E5E5000FCAC4F /* CustomControls */,
+				FED570E02426D27B00071E05 /* se09-user-app.entitlements */,
 				FED570CA241AAF0200071E05 /* Service */,
 				FED570C7241AAE1000071E05 /* Models */,
 				FED570C6241A96BD00071E05 /* ViewController */,
@@ -199,6 +214,7 @@
 				FED570CB241AB81D00071E05 /* AccountViewController.swift */,
 				FED570CD241AE80D00071E05 /* DeviceListViewController.swift */,
 				FED570DA2425322000071E05 /* CameraConfigCaptureViewController.swift */,
+				FED570E12427C00F00071E05 /* WifiViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -209,6 +225,7 @@
 				FED570D1241E652000071E05 /* ESP32Config.swift */,
 				FED570D3241E653D00071E05 /* ESP32ConfigDevice.swift */,
 				FED570DE242575F000071E05 /* MQTTAuthConfig.swift */,
+				FE56F011242E470C00FCAC4F /* ListDeviceDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,7 +251,6 @@
 				FED56BDA24197B2900071E05 /* Frameworks */,
 				FED56BDB24197B2900071E05 /* Resources */,
 				1979EB8C9AF867C9246848F8 /* [CP] Embed Pods Frameworks */,
-				261354210FDD359FB940409F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,7 +289,6 @@
 				FED56BFB24197B2B00071E05 /* Frameworks */,
 				FED56BFC24197B2B00071E05 /* Resources */,
 				BBFAECA49198C8A3B3C4C7AF /* [CP] Embed Pods Frameworks */,
-				8B012EF4082ECFACFABC1378 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -395,23 +410,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-se09-user-app/Pods-se09-user-app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		261354210FDD359FB940409F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-se09-user-app/Pods-se09-user-app-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-se09-user-app/Pods-se09-user-app-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-se09-user-app/Pods-se09-user-app-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		857D696335CE02B2A04FCAF6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -432,23 +430,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8B012EF4082ECFACFABC1378 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-se09-user-app-se09-user-appUITests/Pods-se09-user-app-se09-user-appUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-se09-user-app-se09-user-appUITests/Pods-se09-user-app-se09-user-appUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-se09-user-app-se09-user-appUITests/Pods-se09-user-app-se09-user-appUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BBFAECA49198C8A3B3C4C7AF /* [CP] Embed Pods Frameworks */ = {
@@ -498,12 +479,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FED570DF242575F000071E05 /* MQTTAuthConfig.swift in Sources */,
+				FED570E22427C00F00071E05 /* WifiViewController.swift in Sources */,
 				FED56BE524197B2900071E05 /* LoginViewController.swift in Sources */,
+				FE56F015242E5E7500FCAC4F /* DeviceCell.swift in Sources */,
 				FED570CC241AB81D00071E05 /* AccountViewController.swift in Sources */,
 				FED570DB2425322000071E05 /* CameraConfigCaptureViewController.swift in Sources */,
 				FED570CE241AE80D00071E05 /* DeviceListViewController.swift in Sources */,
 				FED56BE124197B2900071E05 /* AppDelegate.swift in Sources */,
 				FED56BE324197B2900071E05 /* SceneDelegate.swift in Sources */,
+				FE56F012242E470C00FCAC4F /* ListDeviceDTO.swift in Sources */,
 				FED570D4241E653D00071E05 /* ESP32ConfigDevice.swift in Sources */,
 				FED570D0241E5C2C00071E05 /* DeviceService.swift in Sources */,
 				FED56C11241986EF00071E05 /* AuthService.swift in Sources */,

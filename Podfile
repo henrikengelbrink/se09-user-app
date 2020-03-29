@@ -9,6 +9,7 @@ target 'se09-user-app' do
   pod 'AppAuth', '~> 0.94'
   pod 'KeychainAccess'
   pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'CocoaMQTT'
 
   target 'se09-user-appTests' do
     inherit! :search_paths

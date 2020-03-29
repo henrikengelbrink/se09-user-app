@@ -21,6 +21,45 @@ class DeviceService: NSObject {
         self.searchTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(checkDevice), userInfo: nil, repeats: true)
     }
     
+    func setConfig(wifiSSID: String, wifiPass: String, mqttUser: String, mqttPass: String, completion: @escaping () -> Void) {
+        let jsonBody = [
+            "config":[
+                "wifi": [
+                    "sta": [
+                        "enable": true,
+                        "ssid": wifiSSID,
+                        "pass": wifiPass
+                    ],
+                    "ap": [
+                        "enable": false,
+                    ]
+                ],
+                "mqtt": [
+                    "enable": true,
+                    "client_id": mqttUser,
+                    "user": mqttUser,
+                    "pass": mqttPass
+                ]
+            ],
+        ]
+        let url = URL.init(string: "http://192.168.99.1/rpc/Config.Set")
+        AF.request(url!, method: .post, parameters: jsonBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            print(response.result)
+            self.saveConfig(completion: completion)
+        }
+    }
+    
+    private func saveConfig(completion: @escaping () -> Void) {
+        let jsonBody = [
+            "reboot":true,
+        ]
+        let url = URL.init(string: "http://192.168.99.1/rpc/Config.Save")
+        AF.request(url!, method: .post, parameters: jsonBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            print(response.result)
+            completion()
+        }
+    }
+    
     @objc private func checkDevice() {
         print("checkDevice")
         let request = AF.request("http://192.168.99.1/rpc/Config.Get")
