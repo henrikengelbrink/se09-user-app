@@ -155,7 +155,7 @@ class CameraConfigCaptureViewController: UIViewController, AVCapturePhotoCapture
             }
             print("**** SCANNED \(id)")
 //            let lowerCaseId = id.lowercased()
-            let lowerCaseId = "668fb2a2-6609-4450-8a59-c44cc030205b"
+            let lowerCaseId = "2cb7ec16-15b4-4925-95cb-4ed332e11780"
             let alert = UIAlertController(title: "Id correct ?", message: lowerCaseId, preferredStyle: .actionSheet)
             let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WifiViewController") as! WifiViewController

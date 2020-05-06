@@ -8,7 +8,7 @@ class AuthService {
     private let authEndpoint = URL(string: "https://api.engelbrink.dev/hydra/oauth2/auth")!
     private let tokenEndpoint = URL(string: "https://api.engelbrink.dev/hydra/oauth2/token")!
     private let redirectURL = URL(string: "com.se09-user-app:/oauth2/callback")!
-    private let clientId = "cec61f52a0dfae40f7082e2a441cf237"
+    private let clientId = "XXXX"
     private lazy var config = OIDServiceConfiguration(authorizationEndpoint: authEndpoint, tokenEndpoint: tokenEndpoint)
     
     private let keychainKeyAuthState = "keychainKeyAuthState"
